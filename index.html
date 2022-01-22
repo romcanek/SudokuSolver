@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="./favicon.ico">
+    <link rel="stylesheet" href="./styles/main.css">
+    <script src="./scripts/app.js"></script>
+    <title>SudokuSolver</title>
+</head>
+
+<body>
+    <div class="text_pole">
+        <h1>Sudoku solver</h1>
+        <p>
+            Vyplň pole podle svého (bez chyb), pokud zadáš neplatnou hodnotu bude změněna na "0"(prázdné pole),
+            až budeš připraven zmáčkni "Solve!". Tvoje zadání zůstane nezbarvené to co spočítá program se zbarví
+            do zelena nebo do červena pokud neexistuje řešení. Pro pohyb v poli můžete používat TAB
+        </p>
+    </div>
+
+    <div class="sudoku_board">
+        <div class="block">
+            <!--First block of sudoku-->
+            <input data-pos="a0" class="first" type="number" maxlength="1">
+            <input data-pos="a1" class="first" type="number" maxlength="1">
+            <input data-pos="a2" class="first" type="number" maxlength="1">
+            <input data-pos="a3" class="first" type="number" maxlength="1">
+            <input data-pos="a4" class="first" type="number" maxlength="1">
+            <input data-pos="a5" class="first" type="number" maxlength="1">
+            <input data-pos="a6" class="first" type="number" maxlength="1">
+            <input data-pos="a7" class="first" type="number" maxlength="1">
+            <input data-pos="a8" class="first" type="number" maxlength="1">
+        </div>
+        <div class="block">
+            <!--Second block of sudoku-->
+            <input data-pos="b0" class="second" type="number" maxlength="1">
+            <input data-pos="b1" class="second" type="number" maxlength="1">
+            <input data-pos="b2" class="second" type="number" maxlength="1">
+            <input data-pos="b3" class="second" type="number" maxlength="1">
+            <input data-pos="b4" class="second" type="number" maxlength="1">
+            <input data-pos="b5" class="second" type="number" maxlength="1">
+            <input data-pos="b6" class="second" type="number" maxlength="1">
+            <input data-pos="b7" class="second" type="number" maxlength="1">
+            <input data-pos="b8" class="second" type="number" maxlength="1">
+        </div>
+        <div class="block">
+            <!--Third block of sudoku-->
+            <input data-pos="c0" class="third" type="number" maxlength="1">
+            <input data-pos="c1" class="third" type="number" maxlength="1">
+            <input data-pos="c2" class="third" type="number" maxlength="1">
+            <input data-pos="c3" class="third" type="number" maxlength="1">
+            <input data-pos="c4" class="third" type="number" maxlength="1">
+            <input data-pos="c5" class="third" type="number" maxlength="1">
+            <input data-pos="c6" class="third" type="number" maxlength="1">
+            <input data-pos="c7" class="third" type="number" maxlength="1">
+            <input data-pos="c8" class="third" type="number" maxlength="1">
+        </div>
+        <div class="block">
+            <!--Fourth block of sudoku-->
+            <input data-pos="d0" class="fourth" type="number" maxlength="1">
+            <input data-pos="d1" class="fourth" type="number" maxlength="1">
+            <input data-pos="d2" class="fourth" type="number" maxlength="1">
+            <input data-pos="d3" class="fourth" type="number" maxlength="1">
+            <input data-pos="d4" class="fourth" type="number" maxlength="1">
+            <input data-pos="d5" class="fourth" type="number" maxlength="1">
+            <input data-pos="d6" class="fourth" type="number" maxlength="1">
+            <input data-pos="d7" class="fourth" type="number" maxlength="1">
+            <input data-pos="d8" class="fourth" type="number" maxlength="1">
+        </div>
+        <div class="block">
+            <!--Fifth block of sudoku-->
+            <input data-pos="e0" class="fifth" type="number" maxlength="1">
+            <input data-pos="e1" class="fifth" type="number" maxlength="1">
+            <input data-pos="e2" class="fifth" type="number" maxlength="1">
+            <input data-pos="e3" class="fifth" type="number" maxlength="1">
+            <input data-pos="e4" class="fifth" type="number" maxlength="1">
+            <input data-pos="e5" class="fifth" type="number" maxlength="1">
+            <input data-pos="e6" class="fifth" type="number" maxlength="1">
+            <input data-pos="e7" class="fifth" type="number" maxlength="1">
+            <input data-pos="e8" class="fifth" type="number" maxlength="1">
+        </div>
+        <div class="block">
+            <!--Sixth block of sudoku-->
+            <input data-pos="f0" class="sixth" type="number" maxlength="1">
+            <input data-pos="f1" class="sixth" type="number" maxlength="1">
+            <input data-pos="f2" class="sixth" type="number" maxlength="1">
+            <input data-pos="f3" class="sixth" type="number" maxlength="1">
+            <input data-pos="f4" class="sixth" type="number" maxlength="1">
+            <input data-pos="f5" class="sixth" type="number" maxlength="1">
+            <input data-pos="f6" class="sixth" type="number" maxlength="1">
+            <input data-pos="f7" class="sixth" type="number" maxlength="1">
+            <input data-pos="f8" class="sixth" type="number" maxlength="1">
+        </div>
+        <div class="block">
+            <!--Seventh block of sudoku-->
+            <input data-pos="g0" class="seventh" type="number" maxlength="1">
+            <input data-pos="g1" class="seventh" type="number" maxlength="1">
+            <input data-pos="g2" class="seventh" type="number" maxlength="1">
+            <input data-pos="g3" class="seventh" type="number" maxlength="1">
+            <input data-pos="g4" class="seventh" type="number" maxlength="1">
+            <input data-pos="g5" class="seventh" type="number" maxlength="1">
+            <input data-pos="g6" class="seventh" type="number" maxlength="1">
+            <input data-pos="g7" class="seventh" type="number" maxlength="1">
+            <input data-pos="g8" class="seventh" type="number" maxlength="1">
+        </div>
+        <div class="block">
+            <!--Eight block of sudoku-->
+            <input data-pos="h0" class="eight" type="number" maxlength="1">
+            <input data-pos="h1" class="eight" type="number" maxlength="1">
+            <input data-pos="h2" class="eight" type="number" maxlength="1">
+            <input data-pos="h3" class="eight" type="number" maxlength="1">
+            <input data-pos="h4" class="eight" type="number" maxlength="1">
+            <input data-pos="h5" class="eight" type="number" maxlength="1">
+            <input data-pos="h6" class="eight" type="number" maxlength="1">
+            <input data-pos="h7" class="eight" type="number" maxlength="1">
+            <input data-pos="h8" class="eight" type="number" maxlength="1">
+        </div>
+        <div class="block">
+            <!--Ninth block of sudoku-->
+            <input data-pos="i0" class="ninth" type="number" maxlength="1">
+            <input data-pos="i1" class="ninth" type="number" maxlength="1">
+            <input data-pos="i2" class="ninth" type="number" maxlength="1">
+            <input data-pos="i3" class="ninth" type="number" maxlength="1">
+            <input data-pos="i4" class="ninth" type="number" maxlength="1">
+            <input data-pos="i5" class="ninth" type="number" maxlength="1">
+            <input data-pos="i6" class="ninth" type="number" maxlength="1">
+            <input data-pos="i7" class="ninth" type="number" maxlength="1">
+            <input data-pos="i8" class="ninth" type="number" maxlength="1">
+        </div>
+    </div>
+    <div class="buttons">
+        <button id="solve" class="btn">Solve!</button>
+        <button id="clear" class="btn">Clear!</button>
+    </div>
+
+</body>
+
+</html>
